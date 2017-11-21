@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedPost">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Item Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  <ion-card>
+    <img [src]="selectedPost.featured_image.thumbnail"/>
+    <div class="card-title">{{selectedPost.title.rendered}}</div>
+    <div class="card-subtitle">{{selectedPost.date | date: 'd MMM, yyyy' }}</div>
+  </ion-card>
+
+  <ion-card-content *ngIf="selectedPost && selectedPost.content" [innerHtml]="selectedPost.content.rendered"></ion-card-content>
+  <button ion-button block (click)="openMenu()">
+    Action
+  </button>
+  <button ion-button block (click)="openRadio()">Radio</button>
+</ion-content>

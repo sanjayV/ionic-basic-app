@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hello Ionic</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name='contact'></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name='search'></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <!-- <ion-card>
+    <img src="assets/imgs/logo.png" />
+    <ion-card-content>
+      <ion-card-title>
+        Welcome to your first Ionic app!
+      </ion-card-title>
+      <p>
+        This starter project is our way of helping you get a functional app running in record time.
+      </p>
+      <p>
+        Follow along on the tutorial section of the Ionic docs!
+      </p>
+    </ion-card-content>
+    <ion-item>
+      <ion-icon name='musical-notes' item-start style="color: #d03e84"></ion-icon>
+      Albums
+      <ion-badge item-end>9</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='logo-twitter' item-start style="color: #55acee"></ion-icon>
+      Followers
+      <ion-badge item-end>260k</ion-badge>
+    </ion-item>
+  </ion-card> -->
+
+  <!-- <ion-card>
+    <ion-card-header>
+      Explore Nearby
+    </ion-card-header>
+    <ion-list>
+      <button ion-item>
+        <ion-icon name="cart" item-start></ion-icon>
+        Shopping
+      </button>
+      <button ion-item>
+        <ion-icon name="medical" item-start></ion-icon>
+        Hospital
+      </button>
+      <button ion-item>
+        <ion-icon name="cafe" item-start></ion-icon>
+        Cafe
+      </button>
+      <button ion-item>
+        <ion-icon name="paw" item-start></ion-icon>
+        Dog Park
+      </button>
+      <button ion-item>
+        <ion-icon name="beer" item-start></ion-icon>
+        Pub
+      </button>
+      <button ion-item>
+        <ion-icon name="planet" item-start></ion-icon>
+        Space
+      </button>
+    </ion-list>
+  </ion-card> -->
+
+  <ion-card *ngFor="let post of posts">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="./assets/icon/default_user.png">
+      </ion-avatar>
+      <h2>{{post.title.rendered}}</h2>
+      <p>{{post.date | date: 'd MMM, yyyy' }}</p>
+    </ion-item>
+    <img [src]="post.featured_image.thumbnail" (click)="postTapped($event, post.id)">
+    <ion-card-content [innerHtml]="post.excerpt.rendered" (click)="postTapped($event, post.id)"></ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  
+  <!-- <p>
+    <button ion-button color="primary" menuToggle icon-start>
+      <ion-icon name='menu'></ion-icon>
+      Toggle Menu
+    </button>
+  </p> -->
+</ion-content>
